@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Patricia Camargo Terapeuta</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Patricia Camargo, terapeuta holística. Terapia Multidimensional pelo Coração, Barras de Access e Radiestesia Integrada. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,100;1,9..144,300..500,100&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: site inteiro noturno, à luz de velas, com ondas que pulsam como um coração; seções alternam texto e galeria */
+:root{
+  --bg:#22102a;
+  --bg-2:#2c1533;          /* faixas alternadas */
+  --surface:rgba(255,255,255,.045);
+  --mist:rgba(255,255,255,.06);
+  --ink:#fbf1f6;
+  --muted:#d6c0d3;
+  --accent:#f0a9c4;
+  --accent-ink:#22102a;
+  --gold:#e8bf82;
+  --line:rgba(251,241,246,.12);
+  --shadow:rgba(0,0,0,.5);
+  --night:#1b0c21;
+  --night-2:#45204a;
+  --night-ink:#fbf1f6;
+  --night-muted:#d9c3d6;
+  --glow:#f0a9c4;
+  --candle:#e8bf82;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --step-0:clamp(1rem,.96rem + .2vw,1.0625rem);
+  --step-2:clamp(1.75rem,1.45rem + 1.3vw,2.6rem);
+  --step-3:clamp(2.3rem,1.7rem + 2.8vw,4.2rem);
+  --radius:24px;
+  --wrap:1180px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+}
+/* um só visual noturno, escolhido de propósito para os dois temas */
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:var(--step-0);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-weight:450;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.015em;font-variation-settings:"SOFT" 100}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.prose{display:grid;gap:1em;max-width:62ch;color:var(--muted)}
+.prose strong{color:var(--ink);font-weight:600}
+
+/* botões */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.6em;padding:.9em 1.5em;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;white-space:nowrap;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background-color .3s,color .3s,border-color .3s}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 10px 26px -12px var(--accent)}
+.btn-primary::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px -14px var(--accent)}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.on-night .btn-primary{background:var(--glow);color:var(--night);box-shadow:0 10px 30px -10px var(--glow)}
+.on-night .btn-ghost{border-color:rgba(251,241,246,.3);color:var(--night-ink)}
+.on-night .btn-ghost:hover{border-color:var(--candle);color:var(--candle)}
+
+/* cabeçalho: transparente sobre a abertura, claro ao rolar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.top{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:20;color:var(--night-ink);transition:background-color .4s,color .4s,box-shadow .4s,backdrop-filter .4s}
+.top.scrolled{background:color-mix(in srgb,var(--night) 82%,transparent);color:var(--ink);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{text-decoration:none;display:flex;align-items:center;gap:12px;line-height:1.1}
+.brand svg{width:34px;height:34px;flex:none;color:var(--candle);transition:color .4s}
+.top.scrolled .brand svg{color:var(--candle)}
+.brand b{display:block;font-family:var(--display);font-size:1.25rem;font-weight:500}
+.brand small{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a.link{position:relative;text-decoration:none;font-size:.92rem;font-weight:500;opacity:.85}
+.nav a.link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav a.link:hover{opacity:1}
+.nav a.link:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:.62em 1.15em}
+.top:not(.scrolled) .nav .btn-primary{background:var(--glow);color:var(--night)}
+@media (max-width:860px){.nav a.link{display:none}}
+@media (max-width:420px){.nav .btn span{display:none}.nav .btn{padding:.72em}}
+
+/* abertura */
+.hero{position:relative;overflow:hidden;color:var(--night-ink);
+  background:
+    radial-gradient(60% 70% at 78% 45%,rgba(240,169,196,.28),transparent 70%),
+    radial-gradient(40% 50% at 10% 90%,rgba(232,191,130,.16),transparent 70%),
+    linear-gradient(160deg,var(--night) 0%,var(--night-2) 100%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:48px;padding-block:140px 110px}
+.hero-copy{display:grid;gap:26px;min-width:0}
+.hero .eyebrow{color:var(--candle)}
+.hero h1{font-size:var(--step-3);font-weight:330}
+.hero h1 .w{display:inline-block;animation:word 1.1s var(--ease) both;animation-delay:calc(var(--i) * 90ms + 150ms)}
+.hero h1 em{font-style:italic;color:var(--glow)}
+@keyframes word{from{transform:translateY(.45em) rotate(2deg);filter:blur(6px)}to{transform:none;filter:none}}
+.hero-lead{max-width:46ch;color:var(--night-muted);font-size:1.08rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.fade-up{animation:fadeUp 1s var(--ease) both}
+.fade-up.d1{animation-delay:.55s}.fade-up.d2{animation-delay:.7s}.fade-up.d3{animation-delay:.85s}
+@keyframes fadeUp{from{transform:translateY(16px)}to{transform:none}}
+
+.hero-art{position:relative;justify-self:center;width:min(100%,440px);aspect-ratio:1}
+.rings{position:absolute;left:50%;top:50%;width:100%;aspect-ratio:1;translate:-50% -50%;pointer-events:none}
+.pulse{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(240,169,196,.55);animation:pulse 6s var(--ease) infinite;animation-delay:calc(var(--n) * -1.5s)}
+@keyframes pulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.75);opacity:0}}
+.orbit{position:absolute;inset:-10%;animation:spin 50s linear infinite}
+.orbit text{font-family:var(--body);font-size:9.6px;text-transform:uppercase;fill:var(--candle)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.halo{position:absolute;inset:-3%;border-radius:50%;background:radial-gradient(circle,rgba(240,169,196,.45),transparent 65%);filter:blur(30px);animation:beat 4.8s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(.94);opacity:.7}12%{transform:scale(1.02);opacity:1}24%{transform:scale(.97)}36%{transform:scale(1.04);opacity:1}60%{transform:scale(.95);opacity:.75}}
+.hero-photo{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 78%;border:1px solid rgba(232,191,130,.5);box-shadow:0 40px 80px -30px rgba(0,0,0,.6);animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-badge{display:flex;width:fit-content;gap:12px;align-items:center;background:rgba(34,16,42,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(232,191,130,.35);border-radius:18px;padding:12px 16px;font-size:.84rem;line-height:1.35;max-width:360px;color:var(--night-muted);}
+.hero-badge b{font-family:var(--display);font-size:2rem;font-weight:400;color:var(--candle);line-height:1}
+.scroll-cue{position:absolute;left:50%;bottom:22px;translate:-50% 0;width:22px;height:36px;border:1.5px solid rgba(251,241,246,.4);border-radius:12px}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--candle);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:1}70%{transform:translateY(12px);opacity:0}100%{opacity:0}}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:128px 84px;gap:56px}
+  .hero-art{width:min(74%,340px);grid-row:1}
+  .hero-art{width:min(78%,340px)}
+  .scroll-cue{display:none}
+}
+
+/* faixa de benefícios */
+.marquee{overflow:hidden;background:var(--accent);color:var(--accent-ink);padding-block:16px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:slide 48s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee ul{display:flex;gap:0;margin:0;padding:0;list-style:none}
+.marquee li{display:flex;align-items:center;gap:28px;padding-right:28px;font-family:var(--display);font-style:italic;font-size:1.2rem;white-space:nowrap}
+.marquee li::after{content:"";width:7px;height:7px;transform:rotate(45deg);background:currentColor;opacity:.6}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* seções */
+.section{padding-block:104px}
+@media (max-width:700px){.section{padding-block:72px}}
+.head{display:grid;gap:14px;max-width:660px}
+.head h2{font-size:var(--step-2)}
+
+/* sobre */
+.about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.about-photo{position:relative;max-width:440px;width:100%;justify-self:center}
+.about-photo::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);border-radius:var(--radius) var(--radius) var(--radius) 160px;opacity:.6}
+.about-photo img{position:relative;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius) var(--radius) var(--radius) 160px;box-shadow:0 30px 60px -30px var(--shadow)}
+.about-copy{display:grid;gap:22px;min-width:0}
+.about-copy h2{font-size:var(--step-3);font-weight:330}
+.about-copy h2 em{font-style:italic;color:var(--accent)}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 0;padding:0;list-style:none}
+.certs li{display:grid;gap:6px;align-content:start;padding:18px;border-radius:18px;background:var(--mist);border:1px solid var(--line);transition:transform .35s var(--ease),border-color .35s}
+.certs li:hover{transform:translateY(-4px);border-color:var(--gold)}
+.certs svg{width:26px;height:26px;color:var(--accent)}
+.certs b{font-weight:600;font-size:.95rem;line-height:1.3}
+.certs small{color:var(--muted);font-size:.84rem}
+.mec{display:inline-flex;align-items:center;gap:10px;font-size:.9rem;color:var(--muted)}
+.mec svg{width:20px;height:20px;color:var(--gold)}
+@media (max-width:960px){.about .wrap{grid-template-columns:1fr;gap:56px}.about-photo{max-width:380px}}
+@media (max-width:560px){.certs{grid-template-columns:1fr}}
+
+/* terapias */
+.therapies{background:var(--bg-2)}
+.about,.results{background:radial-gradient(50% 60% at 85% 20%,rgba(240,169,196,.10),transparent 70%),radial-gradient(40% 50% at 5% 90%,rgba(232,191,130,.07),transparent 70%)}
+.therapy-copy h3,.head h2,.about-copy h2,.col h3{color:var(--ink)}
+.therapies .head{margin-bottom:28px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pills a{text-decoration:none;font-size:.88rem;padding:.5em 1.05em;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface);transition:all .3s var(--ease)}
+.pills a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.therapy{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-block:64px;scroll-margin-top:80px}
+.therapy + .therapy{border-top:1px solid var(--line)}
+.therapy:nth-of-type(even) .therapy-copy{order:2}
+.therapy-copy{display:grid;gap:18px;min-width:0}
+.num{font-family:var(--display);font-style:italic;font-size:.95rem;color:var(--gold)}
+.therapy-copy h3{font-size:var(--step-2)}
+.tagline{font-family:var(--display);font-style:italic;font-weight:350;font-size:1.25rem;color:var(--accent);line-height:1.35;padding-left:18px;border-left:2px solid var(--gold)}
+.fact{display:flex;gap:16px;align-items:center;padding:16px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:.92rem}
+.fact b{font-family:var(--display);font-size:2.4rem;font-weight:400;line-height:1;color:var(--accent)}
+.gallery{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);min-width:0}
+.gallery figure{margin:0;border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:0 20px 40px -28px var(--shadow)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery .tall{grid-row:span 2}
+.gallery .wide{grid-column:span 2}
+.gallery .plain img{object-fit:contain;background:#fdf8f6}
+.gallery .plain:hover img{transform:scale(1.02)}
+.g-coracao{grid-template-rows:repeat(2,minmax(0,230px))}
+.g-barras .wide{aspect-ratio:3/2}
+.g-barras .plain{aspect-ratio:705/492}
+.g-radi{grid-template-rows:repeat(2,minmax(0,220px))}
+@media (max-width:860px){
+  .therapy{grid-template-columns:1fr;gap:36px}
+  .therapy:nth-of-type(even) .therapy-copy{order:0}
+}
+@media (max-width:480px){.g-coracao,.g-radi{grid-template-rows:repeat(2,minmax(0,170px))}}
+
+/* resultados */
+.results .head{margin-bottom:48px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.col{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;display:grid;align-content:start;gap:18px;min-width:0;overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s}
+.col::before{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 14px,var(--line) 14px 15px);transition:transform .8s var(--ease)}
+.col:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px var(--shadow);border-color:color-mix(in srgb,var(--gold) 60%,var(--line))}
+.col:hover::before{transform:scale(1.25) rotate(20deg)}
+.col-icon{position:relative;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--mist);color:var(--accent)}
+.col-icon svg{width:26px;height:26px}
+.col h3{position:relative;font-size:1.6rem}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.col li{display:flex;gap:12px;align-items:baseline;font-size:.95rem;line-height:1.4}
+.col li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--gold);transform:translateY(-2px)}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+
+/* convite final */
+.cta{position:relative;overflow:hidden;color:var(--night-ink);text-align:center;isolation:isolate;
+  background:radial-gradient(50% 60% at 50% 50%,rgba(240,169,196,.22),transparent 70%),linear-gradient(180deg,var(--night-2),var(--night))}
+.cta .wrap{display:grid;justify-items:center;gap:22px;position:relative}
+.cta-rings{position:absolute;left:50%;top:50%;width:300px;height:300px;translate:-50% -50%;z-index:-1}
+.cta-rings span{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(240,169,196,.4);animation:pulse 7s var(--ease) infinite;animation-delay:calc(var(--n) * -1.75s)}
+.cta .eyebrow{color:var(--candle)}
+.cta h2{font-size:var(--step-3);font-weight:330;max-width:16ch}
+.cta h2 em{color:var(--glow)}
+.cta p{color:var(--night-muted);max-width:52ch}
+.contact-line{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;font-size:.95rem}
+.contact-line em{font-style:normal;white-space:nowrap;color:var(--night-muted)}
+.contact-line span{user-select:all;color:var(--night-ink);font-weight:500}
+
+footer{background:var(--night);color:var(--night-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:26px;font-size:.85rem;border-top:1px solid rgba(251,241,246,.1)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--candle)}
+
+/* WhatsApp flutuante */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);box-shadow:0 12px 30px -10px var(--accent);opacity:0;pointer-events:none;translate:0 16px;transition:opacity .35s,translate .35s var(--ease),transform .25s}
+.fab.show{opacity:1;pointer-events:auto;translate:0 0}
+.fab:hover{transform:scale(1.07)}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);animation:ping 2.6s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.fab svg{width:27px;height:27px}
+
+/* revelar ao rolar: só para o que está abaixo da primeira tela */
+.reveal-wait{opacity:0;transform:translateY(34px)}
+.reveal-wait.in{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal-wait{opacity:1;transform:none}
+  .fab{opacity:1;pointer-events:auto;translate:0 0}
+}
+</style>
+
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Patricia Camargo, início">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="20" cy="20" r="18.5" opacity=".45"/><circle cx="20" cy="20" r="13" opacity=".7"/><path d="M20 27.5s-7-4.3-7-9.2a3.9 3.9 0 0 1 7-2.4 3.9 3.9 0 0 1 7 2.4c0 4.9-7 9.2-7 9.2Z" fill="currentColor" stroke="none"/></svg>
+      <span><b>Patricia Camargo</b><small>Terapeuta holística</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a class="link" href="#sobre">Sobre</a>
+      <a class="link" href="#terapias">Terapias</a>
+      <a class="link" href="#resultados">Resultados</a>
+      <a class="btn btn-primary" href="https://wa.me/5511921288880?text=Ol%C3%A1%2C%20Patricia!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>Agendar</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero on-night" aria-labelledby="hero-title">
+    <canvas id="luzes" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow fade-up">Terapias integrativas</p>
+        <h1 id="hero-title"><span class="w" style="--i:0">Cuidando</span> <span class="w" style="--i:1">do</span> <em class="w" style="--i:2">coração</em> <span class="w" style="--i:3">e</span> <span class="w" style="--i:4">expandindo</span> <span class="w" style="--i:5">a</span> <span class="w" style="--i:6">consciência.</span></h1>
+        <p class="hero-lead fade-up d1">Sessões de Terapia Multidimensional pelo Coração, Barras de Access e Radiestesia Integrada para quem busca cura emocional, leveza e reconexão consigo.</p>
+        <div class="hero-actions fade-up d2">
+          <a class="btn btn-primary" href="https://wa.me/5511921288880?text=Ol%C3%A1%2C%20Patricia!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Agendar pelo WhatsApp</a>
+          <a class="btn btn-ghost" href="#terapias">Conhecer as terapias</a>
+        </div>
+        <div class="hero-badge fade-up d3"><b>32</b><span>pontos ativados na cabeça em cada sessão de Barras de Access</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="halo" aria-hidden="true"></div>
+        <div class="rings" aria-hidden="true">
+        <span class="pulse" style="--n:0" aria-hidden="true"></span>
+        <span class="pulse" style="--n:1" aria-hidden="true"></span>
+        <span class="pulse" style="--n:2" aria-hidden="true"></span>
+        <span class="pulse" style="--n:3" aria-hidden="true"></span>
+        <svg class="orbit" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100,100 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/></defs><text><textPath href="#circ" textLength="575" lengthAdjust="spacing">Coração · Mente · Corpo · Campo vibracional · Consciência ·</textPath></text></svg>
+        </div>
+        <img class="hero-photo" src="img/hero-massagem.jpg" alt="Sessão de terapia com toque suave na cabeça, em ambiente iluminado por velas" width="896" height="1344">
+      </div>
+    </div>
+    <span class="scroll-cue" aria-hidden="true"></span>
+  </section>
+
+  <div class="marquee" aria-label="Benefícios das terapias">
+    <div class="marquee-track">
+      <ul><li>Relaxamento</li><li>Clareza mental</li><li>Cura emocional</li><li>Paz interior</li><li>Sono restaurador</li><li>Limpeza energética</li><li>Alívio de traumas</li><li>Conexão com a essência</li><li>Fluxo de prosperidade</li><li>Criatividade</li></ul>
+      <ul aria-hidden="true"><li>Relaxamento</li><li>Clareza mental</li><li>Cura emocional</li><li>Paz interior</li><li>Sono restaurador</li><li>Limpeza energética</li><li>Alívio de traumas</li><li>Conexão com a essência</li><li>Fluxo de prosperidade</li><li>Criatividade</li></ul>
+    </div>
+  </div>
+
+  <section class="about section" id="sobre" aria-labelledby="sobre-title">
+    <div class="wrap">
+      <div class="about-photo reveal">
+        <img src="img/patricia-retrato.jpg" alt="Retrato de Patricia Camargo sorrindo" width="768" height="1152">
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow reveal">Sobre mim</p>
+        <h2 id="sobre-title" class="reveal">Olá, eu sou <em>Patricia Camargo</em></h2>
+        <div class="prose reveal">
+          <p><strong>Terapeuta holística, apaixonada por tudo o que desperta consciência, cura emocional e expansão da alma.</strong></p>
+          <p>Trabalho com técnicas que alinham corpo, mente e campo vibracional, transformando sua vida.</p>
+        </div>
+        <ul class="certs" aria-label="Certificações">
+          <li class="reveal" style="--d:.0s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg><b>Access Consciousness</b><small>Barras de Access</small></li>
+          <li class="reveal" style="--d:.1s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg><b>Terapia Multidimensional pelo Coração</b><small>APTMD</small></li>
+          <li class="reveal" style="--d:.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg><b>Radiestesia Integrada</b><small>Método Rai</small></li>
+        </ul>
+        <p class="mec reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/></svg>Formações em instituições credenciadas pelo MEC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="therapies section" id="terapias" aria-labelledby="terapias-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow">Terapias</p>
+        <h2 id="terapias-title">Três caminhos para o mesmo lugar: você, inteira(o) e em equilíbrio.</h2>
+        <nav class="pills" aria-label="Ir para a terapia">
+          <a href="#coracao">Terapia pelo Coração</a>
+          <a href="#barras">Barras de Access</a>
+          <a href="#radiestesia">Radiestesia Integrada</a>
+        </nav>
+      </div>
+
+      <article class="therapy" id="coracao" aria-labelledby="coracao-title">
+        <div class="therapy-copy">
+          <p class="num reveal">Terapia I</p>
+          <h3 id="coracao-title" class="reveal">Terapia Multidimensional pelo Coração</h3>
+          <p class="tagline reveal">O coração como portal da fé, da força interior e da verdade que habita em você.</p>
+          <div class="prose reveal">
+            <p>A Terapia Multidimensional pelo Coração é uma ferramenta energética que atua no ponto mais sagrado do seu ser: o coração.</p>
+            <p>Durante a sessão, abrimos acesso a dimensões sutis de cura, onde uma egrégora amorosa, composta por Mestres Ascensionados, Seres de Luz e seu Anjo da Guarda, trabalha exatamente o que sua alma está pronta para liberar, realinhar e transformar.</p>
+            <p>É um tratamento que alcança lugares que a mente não consegue tocar, dissolvendo padrões, acolhendo feridas e abrindo caminhos de leveza, equilíbrio e reconexão.</p>
+          </div>
+        </div>
+        <div class="gallery g-coracao">
+          <figure class="tall reveal"><img src="img/coracao-livro.jpg" alt="Patricia segurando o livro Coração" style="object-position:50% 30%"></figure>
+          <figure class="reveal" style="--d:.12s"><img src="img/coracao-beneficios.jpg" alt="Benefícios: reduz o estresse e a ansiedade, libera traumas e bloqueios, reequilibra suas emoções, atrai prosperidade e harmonia, eleva a consciência e o bem-estar" style="object-position:50% 22%"></figure>
+          <figure class="plain reveal" style="--d:.24s"><img src="img/coracao-frase.jpg" alt="Se o seu coração sente o chamado, permita-se viver essa experiência. A cura começa quando você se permite escolher."></figure>
+        </div>
+      </article>
+
+      <article class="therapy" id="barras" aria-labelledby="barras-title">
+        <div class="therapy-copy">
+          <p class="num reveal">Terapia II</p>
+          <h3 id="barras-title" class="reveal">Barras de Access</h3>
+          <p class="tagline reveal">Um respiro para a mente. Um alívio para o corpo. Um novo fluxo para a sua vida.</p>
+          <div class="prose reveal">
+            <p>As Barras de Access são uma técnica energética suave que desliga padrões, tensões e pensamentos que te deixam cansada(o), estressada(o) ou travada(o) na vida.</p>
+            <p>É como apertar o reset de tudo aquilo que já não serve mais, sem precisar falar, reviver ou explicar nada.</p>
+          </div>
+          <div class="fact reveal"><b data-count="32">32</b><span>pontos na cabeça são ativados para liberar crenças, emoções acumuladas e tudo aquilo que ocupa espaço demais na sua mente.</span></div>
+        </div>
+        <div class="gallery g-barras">
+          <figure class="wide reveal"><img src="img/barras-atendimento.jpg" alt="Patricia mostrando o mapa dos pontos das Barras de Access"></figure>
+          <figure class="wide plain reveal" style="--d:.12s"><img src="img/barras-pontos.jpg" alt="Diagrama dos pontos das Barras de Access na cabeça: controle, consciência, dinheiro, criatividade, cura, comunicação e outros"></figure>
+        </div>
+      </article>
+
+      <article class="therapy" id="radiestesia" aria-labelledby="radi-title">
+        <div class="therapy-copy">
+          <p class="num reveal">Terapia III</p>
+          <h3 id="radi-title" class="reveal">Radiestesia Integrada + Cromoterapia + Gráficos Radiônicos</h3>
+          <p class="tagline reveal">Perceber e harmonizar as vibrações sutis que influenciam o seu bem-estar.</p>
+          <div class="prose reveal">
+            <p>É uma técnica terapêutica que utiliza instrumentos como pêndulo ou gráfico radiestésico para identificar e equilibrar energias. Ela ajuda a perceber vibrações sutis que influenciam o bem-estar físico, mental e espiritual.</p>
+            <p>Na radiestesia, eu utilizo o seu <strong>nome completo e data de nascimento</strong>. Com essas informações, me conecto à sua vibração energética e, através do pêndulo e gráficos radiônicos, identifico e harmonizo os desequilíbrios.</p>
+          </div>
+        </div>
+        <div class="gallery g-radi">
+          <figure class="tall reveal"><img src="img/radiestesia-pendulo.jpg" alt="Patricia usando o pêndulo sobre gráficos radiônicos"></figure>
+          <figure class="reveal" style="--d:.12s"><img src="img/radiestesia-grafico.jpg" alt="Patricia segurando um gráfico radiônico" style="object-position:30% 50%"></figure>
+          <figure class="reveal" style="--d:.24s"><img src="img/radiestesia-meditacao.jpg" alt="Patricia com as mãos em prece diante de velas" style="object-position:50% 25%"></figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="results section" id="resultados" aria-labelledby="res-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow">Transformações</p>
+        <h2 id="res-title">Transformações e resultados alcançados</h2>
+      </div>
+      <div class="cols">
+        <div class="col reveal">
+          <div class="col-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21a8 8 0 0 1-8-8c0-4.4 3.6-9 8-10 4.4 1 8 5.6 8 10a8 8 0 0 1-8 8Z"/><path d="M8 10h.01M11 7.5h.01M14 8.5h.01M16 11h.01M9.5 13h.01"/></svg></div>
+          <h3>Barras de Access</h3>
+          <ul><li>Relaxamento</li><li>Clareza mental</li><li>Criatividade</li><li>Foco</li><li>Redução do estresse</li><li>Sono restaurador</li><li>Expansão da consciência</li><li>Desbloqueio de crenças limitantes</li></ul>
+        </div>
+        <div class="col reveal" style="--d:.12s">
+          <div class="col-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-8-4.9-8-10.5A4.5 4.5 0 0 1 12 6.8a4.5 4.5 0 0 1 8 2.7C20 15.1 12 20 12 20Z"/></svg></div>
+          <h3>Terapia pelo Coração</h3>
+          <ul><li>Expansão e despertar da consciência</li><li>Frequência vibracional elevada</li><li>Cura emocional</li><li>Alívio de traumas</li><li>Reequilíbrio energético</li><li>Paz interior</li><li>Conexão com a essência</li><li>Liberação de medos, culpas e padrões</li></ul>
+        </div>
+        <div class="col reveal" style="--d:.24s">
+          <div class="col-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2v9"/><path d="M12 11l-3.5 5L12 22l3.5-6L12 11Z"/></svg></div>
+          <h3>Radiestesia</h3>
+          <ul><li>Limpeza energética</li><li>Alinhamento dos chakras</li><li>Harmonização</li><li>Vitalidade</li><li>Equilíbrio físico e emocional</li><li>Organização interna</li><li>Fluxo de prosperidade</li><li>Proteção</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta section on-night" id="contato" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="cta-rings" aria-hidden="true"><span style="--n:0"></span><span style="--n:1"></span><span style="--n:2"></span><span style="--n:3"></span></div>
+      <p class="eyebrow reveal">Agende sua sessão</p>
+      <h2 id="cta-title" class="reveal">Seu coração sente o <em>chamado</em>?</h2>
+      <p class="reveal">Permita-se viver essa experiência. A cura começa quando você se permite escolher. Fale comigo pelo WhatsApp para tirar dúvidas e marcar seu horário.</p>
+      <div class="hero-actions reveal" style="justify-content:center">
+        <a class="btn btn-primary" href="https://wa.me/5511921288880?text=Ol%C3%A1%2C%20Patricia!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/patricia_camar/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@patricia_camar</a>
+      </div>
+      <p class="contact-line reveal"><em>WhatsApp <span>(11) 92128-8880</span></em><em>Instagram <span>@patricia_camar</span></em></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="ano">2026</span> Patricia Camargo · Terapeuta holística</span>
+    <a href="#inicio">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5511921288880?text=Ol%C3%A1%2C%20Patricia!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+
+<script>
+(() => {
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // cabeçalho e botão flutuante
+  const header = document.getElementById('top');
+  const fab = document.querySelector('.fab');
+  const hero = document.querySelector('.hero');
+  const onScroll = () => {
+    const past = window.scrollY > hero.offsetHeight - 80;
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    fab.classList.toggle('show', past);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // revelar ao rolar: só esconde o que ainda está fora da tela
+  const items = [...document.querySelectorAll('.reveal')];
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+        const n = e.target.querySelector('[data-count]');
+        if (n) countUp(n);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach((el) => {
+      if (el.getBoundingClientRect().top > innerHeight) {
+        el.classList.add('reveal-wait');
+        io.observe(el);
+      }
+    });
+  }
+
+  function countUp(el) {
+    const end = +el.dataset.count, t0 = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / 1400);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  // luzes flutuantes na abertura, como chamas de vela
+  const cv = document.getElementById('luzes');
+  const ctx = cv.getContext('2d');
+  let w, h, dots = [], running = true;
+  const resize = () => {
+    const r = devicePixelRatio || 1;
+    w = cv.clientWidth; h = cv.clientHeight;
+    cv.width = w * r; cv.height = h * r; ctx.setTransform(r, 0, 0, r, 0, 0);
+    const count = Math.round(Math.min(60, w / 22));
+    dots = Array.from({ length: count }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.8 + .4, s: Math.random() * .25 + .08,
+      a: Math.random() * Math.PI * 2, warm: Math.random() < .45
+    }));
+  };
+  const draw = () => {
+    ctx.clearRect(0, 0, w, h);
+    for (const d of dots) {
+      d.y -= d.s; d.a += .012; d.x += Math.sin(d.a) * .18;
+      if (d.y < -10) { d.y = h + 10; d.x = Math.random() * w; }
+      const alpha = .35 + Math.sin(d.a * 1.7) * .25;
+      const g = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r * 5);
+      g.addColorStop(0, d.warm ? `rgba(232,191,130,${alpha})` : `rgba(240,169,196,${alpha})`);
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r * 5, 0, Math.PI * 2); ctx.fill();
+    }
+    if (running && !reduce) requestAnimationFrame(draw);
+  };
+  resize(); draw();
+  addEventListener('resize', resize);
+  new IntersectionObserver(([e]) => {
+    const was = running; running = e.isIntersecting;
+    if (running && !was && !reduce) requestAnimationFrame(draw);
+  }).observe(hero);
+})();
+</script>
+
+</body>
+</html>
